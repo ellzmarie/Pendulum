@@ -1,19 +1,29 @@
 // Dependencies
 const express = require("express");
 const app = express()
-const router = express.Router();
+const pendulumRouter = express.Router();
+const taskData = require('../models/seed.js')
+const taskItem = require('../models/product.js')
 
 //INDUCES:
 // SEED
+pendulumRouter.get('/seed', (req,res) => {
+    taskItem.deleteMany({}, (error, allItems) => { })
+    taskItem.create(taskData, (error, data) => {
+        res.redirect('/pendulum')
+    })
+})
 
 // INDEX
-app.get('/pendulum', (req, res) => {
-    res.render('index.ejs')  
+pendulumRouter.get('/', (req, res) => {
+    taskItem.find({}, (error, allItems) => {
+        res.render('index.ejs', { taskList: allItems }) 
+    }) 
 })
 
 // NEW
-app.get('/pendulum/new', (req, res) => {
-    res.render('new item list')
+pendulumRouter.get('/new', (req, res) => {
+    res.render('new.ejs')
 })
 
 // // DELETE / DESTROY
@@ -42,3 +52,5 @@ app.get('/pendulum/new', (req, res) => {
 // app.get('/findById:id', (req, res) => {
 //     res.render('')
 // })
+
+module.exports = pendulumRouter

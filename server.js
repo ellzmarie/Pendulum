@@ -2,8 +2,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
-// const methodOverride = require('method-override')
-// const pendulumController = require('./controller/lists.js')
+const methodOverride = require('method-override')
+const pendulumController = require('./controllers/tasks.js')
 
 require('dotenv').config()
 const PORT = process.env.PORT;
@@ -21,8 +21,8 @@ db.on("disconnected", () => console.log("mongo disconnected"))
 
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: true }))
-// app.use(methodOverride("_method"))
-// app.use('/pendulum', pendulumController)
+app.use(methodOverride("_method"))
+app.use('/pendulum', pendulumController)
 app.use(express.static('public'))
 
 // Listener
