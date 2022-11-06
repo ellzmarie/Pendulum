@@ -3,22 +3,22 @@ const express = require("express");
 const app = express()
 const pendulumRouter = express.Router();
 const taskData = require('../models/seed.js')
-const taskItem = require('../models/product.js')
+const TaskItem = require('../models/product.js')
 
 //INDUCES:
 // SEED
-pendulumRouter.get('/seed', (req,res) => {
-    taskItem.deleteMany({}, (error, allItems) => { })
-    taskItem.create(taskData, (error, data) => {
+pendulumRouter.get('/seed', (req, res) => {
+    TaskItem.deleteMany({}, (error, allItems) => { })
+    TaskItem.create(taskData, (error, data) => {
         res.redirect('/pendulum')
     })
 })
 
 // INDEX
 pendulumRouter.get('/', (req, res) => {
-    taskItem.find({}, (error, allItems) => {
-        res.render('index.ejs', { taskList: allItems }) 
-    }) 
+    TaskItem.find({}, (error, allItems) => {
+        res.render('index.ejs', { taskitems: allItems })
+    })
 })
 
 // NEW
@@ -26,31 +26,42 @@ pendulumRouter.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
-// // DELETE / DESTROY
-// app.delete('/:id', (req, res) => {
-//     res.render('delete items here')
-// })
+// DELETE / DESTROY
+pendulumRouter.delete('/:id', (req, res) => {
+    TaskItem.findByIdAndRemove(req.params.id, (error, deletedItem) => {
+        res.render('/pendulum')
+    })
+})
 
-// // UPDATE
-// app.put('/:id', (req, res) => {
-//     res.render('update items')
-//     // res.redirect('/')
-// })
+// UPDATE
+pendulumRouter.put('/:id', (req, res) => {
+    TaskItem.findByIdAndUpdate(req.params.id, req.body, () => {
+        res.redirect('/pendulum')
+    })
+})
 
-// // CREATE
-// app.post('/:id', (req, res) => {
-//     res.render('create item')
-//     // res.redirect('/')
-// })
+// CREATE
+pendulumRouter.post('/:id', (req, res) => {
+    TaskItem.create(req.body, (err, createdTask) => {
+        if (err) console.log(err)
+        res.redirect('/pendulum')
+    })
+})
 
-// // EDIT 
-// app.get('/:id/edit', (req, res) => {
-//     res.render('/edit.ejs')
-// })
+// EDIT 
+pendulumRouter.get('/:id/edit', (req, res) => {
+    TaskItem.findById(req.params.id, (err, foundTask) => {
+        if (err) console.log(err)
+        res.render('/pendulum/edit.ejs')
+        })
+    })
 
-// // SHOW
-// app.get('/findById:id', (req, res) => {
-//     res.render('')
-// })
+// SHOW
+pendulumRouter.get('/findById:id', (req, res) => {
+    TaskItem.findById(req.params.id, (err, foundTask) => {
+        if (err) console.log(err)
+        res.render('/pendulum/show.ejs')
+    })
+})
 
 module.exports = pendulumRouter

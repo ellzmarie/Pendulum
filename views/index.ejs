@@ -10,15 +10,13 @@
     <main>
         <h1>Board Title View</h1>
         <div class="container top-container">
-            <% taskList.forEach(item=> { %>
+            <% taskitems.forEach(item => { %>
                 <h3><div class="item-title"><%=item.name %></div></h3>
-                  <a href="/pendulum/<%=item._id %>"><img src="<%=item.img %>"></a><br>
+                  <a href="/pendulum/<%=item._id %>"></a><br>
     
                   <form action="/pendulum/ %>?_method=DELETE" method="post">
                     <input type="submit" value="DELETE" /></br></br>
                   </form>
-    
-            
               <% }) %>
           </div>
     </main>

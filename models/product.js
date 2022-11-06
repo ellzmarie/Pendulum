@@ -9,5 +9,5 @@ const productSchema = new mongoose.Schema ({
     completed: Boolean
 })
 
-const taskItem = mongoose.model("taskItem", productSchema)
-module.exports = taskItem
+const TaskItem = mongoose.model("TaskItem", productSchema)
+module.exports = TaskItem
