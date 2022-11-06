@@ -11,7 +11,7 @@
         <h1>Board Title View</h1>
         <div class="container top-container">
             <% taskitems.forEach(item => { %>
-                <h3><div class="item-title"><%=item.name %></div></h3>
+                <h3><div class="item-title"><%=item.taskName %></div></h3>
                   <a href="/pendulum/<%=item._id %>"></a><br>
     
                   <form action="/pendulum/ %>?_method=DELETE" method="post">

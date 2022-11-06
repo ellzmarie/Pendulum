@@ -9,11 +9,12 @@
 <body>
     <main>
         <div class="container">
-            <h1><%=item.name %></h1>
+            <h1><%=item.taskName %></h1>
             <div class="container body-container">
-              </br><b>Description:</b> <%=product.description %>
-                </br><b>Price:</b> $<%=product.price%>
-                  </br><b>Quantity:</b> <%=product.qty%></br>
+              </br><b>Status:</b> <%=item.status %>
+                </br><b>Priority:</b> $<%=item.priority%>
+                  </br><b>Date:</b> <%=item.date%></br>
+                    </br><b>Notes:</b> <%=item.notes%></br>
                   <a href="/pendulum/ %>/edit">Edit</a>
                 </br>
             </div>
