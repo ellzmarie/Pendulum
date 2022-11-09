@@ -8,8 +8,10 @@ const TaskItem = require('../models/product.js')
 //INDUCES:
 // SEED
 pendulumRouter.get('/seed', (req, res) => {
-    TaskItem.deleteMany({}, (error, allItems) => {})
+    console.log('getting seed route')
+    // TaskItem.deleteMany({}, (error, allItems) => {})
     TaskItem.create(taskData, (error, data) => {
+        console.log(error)
         res.redirect('/pendulum')
     })
 })
@@ -59,8 +61,10 @@ pendulumRouter.get('/:id/edit', (req, res) => {
 // SHOW
 pendulumRouter.get('/findById:id', (req, res) => {
     TaskItem.findById(req.params.id, (err, foundTask) => {
-        if (err) console.log(err)
-        res.render('show.ejs')
+        // if (err) console.log(err)
+        res.render('show.ejs', {
+            item: item
+        })
     })
 })
 

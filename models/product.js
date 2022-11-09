@@ -5,8 +5,8 @@ const itemSchema = new mongoose.Schema ({
     taskName: {type: String, required: true},
     status: {type: String, required: true},
     priority: {type: String, required: true},
-    date: {type: Number, required: true},
-    notes: {type: Number, required: true},
+    date: {type: String, required: true},
+    notes: {type: String, required: true},
     completed: Boolean
 })
 

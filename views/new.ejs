@@ -17,6 +17,7 @@
             align-content: center; 
             height: 100%;
             font-family: 'Oxygen', sans-serif;
+            text-align: center;
         }
         h1 {
             display: inline;
@@ -24,9 +25,20 @@
             padding: 2px;
             font-family: 'Montserrat', sans-serif
         }
+        .topnav a {
+            float: right;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
     </style>
 </head>
 <body>
+<!-- ============ HEADER ============ -->
+<%- include('./partials/header.ejs')%>
+<!-- ============ MAIN ============ -->
     <div class="container">
         <h1>NEW TASK</h1>
         <form action="/pendulum" method="POST">

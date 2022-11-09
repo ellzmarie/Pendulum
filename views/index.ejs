@@ -17,6 +17,7 @@
             align-content: center; 
             height: 100%;
             font-family: 'Oxygen', sans-serif;
+            text-align: center;
         }
         h1 {
             display: inline;
@@ -27,16 +28,20 @@
     </style>
 </head>
 <body>
+<!-- ============ HEADER ============ -->
+<!-- ============ MAIN ============ -->
     <main>
-        <h1>MAIN BOARD</h1>
+        <h1>TODO LIST</h1>
         <div class="container top-container">
+            <form id="new-task">
             <% taskitems.forEach(item => { %>
-                <h3><div class="item-title"><%=item.taskName %></div></h3>
-                  <a href="/pendulum/<%=item._id %>"></a><br>
-    
+                <h3><div class="item-title"><%=item.taskName %></div></h3>  
+                <a href="/pendulum/<%=item._id %>"></a><br>
                   <form action="/pendulum/<%=item._id %>?_method=DELETE" method="post">
+                    <button class="button"><a href="/pendulum/<%=item._id%>/edit">EDIT</a></button>
                     <input type="submit" value="DELETE" /></br></br>
                   </form>
+                </form>
               <% }) %>
           </div>
     </main>
