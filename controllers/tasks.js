@@ -8,7 +8,7 @@ const TaskItem = require('../models/product.js')
 //INDUCES:
 // SEED
 pendulumRouter.get('/seed', (req, res) => {
-    TaskItem.deleteMany({}, (error, allItems) => { })
+    TaskItem.deleteMany({}, (error, allItems) => {})
     TaskItem.create(taskData, (error, data) => {
         res.redirect('/pendulum')
     })
@@ -36,7 +36,7 @@ pendulumRouter.delete('/:id', (req, res) => {
 // UPDATE
 pendulumRouter.put('/:id', (req, res) => {
     TaskItem.findByIdAndUpdate(req.params.id, req.body, () => {
-        res.redirect('/pendulum')
+        res.redirect(`/pendulum/${req.params.id}`)
     })
 })
 
@@ -52,7 +52,7 @@ pendulumRouter.post('/:id', (req, res) => {
 pendulumRouter.get('/:id/edit', (req, res) => {
     TaskItem.findById(req.params.id, (err, foundTask) => {
         if (err) console.log(err)
-        res.render('/pendulum/edit.ejs')
+        res.render('edit.ejs')
         })
     })
 
@@ -60,7 +60,7 @@ pendulumRouter.get('/:id/edit', (req, res) => {
 pendulumRouter.get('/findById:id', (req, res) => {
     TaskItem.findById(req.params.id, (err, foundTask) => {
         if (err) console.log(err)
-        res.render('/pendulum/show.ejs')
+        res.render('show.ejs')
     })
 })
 

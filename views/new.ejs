@@ -5,11 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Item</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">
+    <style>    
+        body {
+            background-color: #fcf2eb;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #ad896e;
+            justify-content: center;
+            align-content: center; 
+            height: 100%;
+            font-family: 'Oxygen', sans-serif;
+        }
+        h1 {
+            display: inline;
+            text-align: center;
+            padding: 2px;
+            font-family: 'Montserrat', sans-serif
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Create a New Task</h1>
-        <form actions="/pendulum" method="POST">
+        <h1>NEW TASK</h1>
+        <form action="/pendulum" method="POST">
             <label for="taskName">Task:</label>
             <input type="text" name="taskName"/><br><br>
 
