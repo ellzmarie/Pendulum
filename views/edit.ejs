@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Task</title>
-  
-</head>
-<body>
-    <main>
-        <div class="container">
-            <h1>Edit Task</h1>
-            <form action="/pendulum/<%=item._id%>?_method=PUT" method="POST">
-                <label for="taskName">Task:</label>
-                <input type="text" name="taskName"/><br><br>
-    
-                <label for="status">Status:</label>
-                <input type="text" name="status"/><br><br>
-    
-                <label for="priority">Priority:</label>
-                <input type="text" name="priority"/><br><br>
-    
-                <label for="date">Date:</label>
-                <input type="text" name="date"/><br><br>
-    
-                <label for="notes">Notes:</label>
-                <input type="text" name="notes"/><br><br>
-        
-              <lablel for="completed">Completed:</lablel>
-              <input type="checkbox" name="completed" <% if(item.completed=== true){ %> checked <% } %> />
-                <br />
 
-                <input type="submit" class="new-btn"><a href="/pendulum"></a></button>
-                <br><br>
-            </form>
-          </div>
-    </main>
-    
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task</title>
+
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Edit Task</h1>
+      <form action="/pendulum/<%=item._id%>?_method=PUT" method="POST">
+        <label for="taskName">Task:</label>
+        <input type="text" name="taskName" /><br><br>
+
+        <label for="status">Status:</label>
+        <input type="text" name="status" /><br><br>
+
+        <label for="priority">Priority:</label>
+        <input type="text" name="priority" /><br><br>
+
+        <label for="date">Date:</label>
+        <input type="text" name="date" /><br><br>
+
+        <label for="notes">Notes:</label>
+        <input type="text" name="notes" /><br><br>
+
+        <lablel for="completed">Completed:</lablel>
+        <input type="checkbox" name="completed" <% if(item.completed===true){ %> checked <% } %> />
+          <br />
+
+          <input type="submit" class="new-btn"><a href="/pendulum"></a></button>
+          <br><br>
+      </form>
+    </div>
+  </main>
+
 </body>
+
 </html>

@@ -8,10 +8,8 @@ const TaskItem = require('../models/product.js')
 //INDUCES:
 // SEED
 pendulumRouter.get('/seed', (req, res) => {
-    console.log('getting seed route')
-    // TaskItem.deleteMany({}, (error, allItems) => {})
+    TaskItem.deleteMany({}, (error, allItems) => {})
     TaskItem.create(taskData, (error, data) => {
-        console.log(error)
         res.redirect('/pendulum')
     })
 })
@@ -31,19 +29,25 @@ pendulumRouter.get('/new', (req, res) => {
 // DELETE / DESTROY
 pendulumRouter.delete('/:id', (req, res) => {
     TaskItem.findByIdAndRemove(req.params.id, (error, deletedItem) => {
-        res.render('/pendulum')
+        res.redirect('/pendulum')
     })
 })
 
 // UPDATE
 pendulumRouter.put('/:id', (req, res) => {
-    TaskItem.findByIdAndUpdate(req.params.id, req.body, () => {
+    req.body.completed = (req.body.completed === "on") ? true : false;
+    TaskItem.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        { new: true },
+        (err, updatedItem) => {
         res.redirect(`/pendulum/${req.params.id}`)
     })
 })
 
 // CREATE
 pendulumRouter.post('/:id', (req, res) => {
+    req.body.completed = req.body.completed === "on" ? true : false;
     TaskItem.create(req.body, (err, createdTask) => {
         if (err) console.log(err)
         res.redirect('/pendulum')

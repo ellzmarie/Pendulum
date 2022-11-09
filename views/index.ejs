@@ -1,49 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendulum</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">    
-    <style>
-        body {
-            background-color: #fcf2eb;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: #ad896e;
-            justify-content: center;
-            align-content: center; 
-            height: 100%;
-            font-family: 'Oxygen', sans-serif;
-            text-align: center;
-        }
-        h1 {
-            display: inline;
-            text-align: center;
-            padding: 2px;
-            font-family: 'Montserrat', sans-serif
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendulum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fcf2eb;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #ad896e;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    h1 {
+      display: inline;
+      text-align: center;
+      padding: 2px;
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .todo-container {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    padding: 20px;
+    width: 900px;
+    transform: translate(-50%,-50%);
+    background: #d9c5B8;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+  .todo {
+    width: 600px;
+    height: 400px;
+    display: flex;
+}
+  .todo-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  .todo-list-item input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border-radius: 5px;
+  }
+  .todo-list-item button {
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .item-title div {
+    display: flex;
+  } 
+  .add {
+    margin-right: 10px;
+    cursor: pointer;
+  } 
+  .edit {
+    margin-right: 10px;
+    cursor: pointer;
+  } 
+  .delete {
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .item-title-one{
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px;
+    border-radius: 5px;
+    justify-content: space-between;  
+    font: black;
+  }
+  .user-list {
+    display: flex;
+    justify-content: space-between;  
+    flex-direction: column;
+  }
+
+  </style>
 </head>
+
 <body>
-<!-- ============ HEADER ============ -->
-<!-- ============ MAIN ============ -->
-    <main>
-        <h1>TODO LIST</h1>
-        <div class="container top-container">
-            <form id="new-task">
-            <% taskitems.forEach(item => { %>
-                <h3><div class="item-title"><%=item.taskName %></div></h3>  
-                <a href="/pendulum/<%=item._id %>"></a><br>
-                  <form action="/pendulum/<%=item._id %>?_method=DELETE" method="post">
-                    <button class="button"><a href="/pendulum/<%=item._id%>/edit">EDIT</a></button>
-                    <input type="submit" value="DELETE" /></br></br>
-                  </form>
-                </form>
-              <% }) %>
-          </div>
-    </main>
+  <!-- ============ HEADER ============ -->
+  <!-- ============ MAIN ============ -->
+  <main>
+    <div class="todo-container">
+      <h1>TODO LIST</h1>
+      
+      <div class="todo">
+
+          <div class="item-title-one">
+            <div class="taskName">Task</div>
+            <div class="date">Date</div>  
+            <div class="status">Status</div>          
+            <div class="priority">Priority</div>                  
+            <div class="notes">Notes</div><br>
+
+          <div class="user-list"></div>
+            <% taskitems.forEach(item=> { %>
+                <div class="taskName"><%=item.taskName %></div>
+                <div class="date"><%=item.date %></div>
+                  <div class="status"><%=item.status %></div>
+                  <div class="priority"><%=item.priority %></div>
+                  <div class="notes"><%=item.notes %></div>
+                
+                  <a href="/pendulum/<%=item._id %>"></a>
+                    <input type="submit" value="ADD" class="add"><a href="/pendulum/<%=item._id%>/new"></a>
+                    <input type="submit" value="EDIT" class="edit"><a href="/pendulum/<%=item._id%>/edit"></a>
+                    <form action="/pendulum/<%=item._id %>?_method=DELETE" method="post">
+                    <input type="submit" value="DELETE" class='delete' />
+                    </form></br>
+                    <% }) %>
+            </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>

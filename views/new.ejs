@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Item</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">
-    <style>    
-        body {
-            background-color: #fcf2eb;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: #ad896e;
-            justify-content: center;
-            align-content: center; 
-            height: 100%;
-            font-family: 'Oxygen', sans-serif;
-            text-align: center;
-        }
-        h1 {
-            display: inline;
-            text-align: center;
-            padding: 2px;
-            font-family: 'Montserrat', sans-serif
-        }
-        .topnav a {
-            float: right;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Item</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fcf2eb;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #ad896e;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    h1 {
+      display: inline;
+      text-align: center;
+      padding: 2px;
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .todo-container {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    padding: 20px;
+    width: 900px;
+    transform: translate(-50%,-50%);
+    background: #d9c5B8;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .topnav a {
+      float: right;
+      color: black;
+      text-align: center;
+      padding: 12px 16px;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+
+  </style>
 </head>
+
 <body>
-<!-- ============ HEADER ============ -->
-<%- include('./partials/header.ejs')%>
-<!-- ============ MAIN ============ -->
-    <div class="container">
-        <h1>NEW TASK</h1>
-        <form action="/pendulum" method="POST">
-            <label for="taskName">Task:</label>
-            <input type="text" name="taskName"/><br><br>
+  <!-- ============ HEADER ============ -->
+  <!-- <%- include('./partials/header.ejs')%> -->
+    <!-- ============ MAIN ============ -->
+    <div class="todo-container">
 
-            <label for="status">Status:</label>
-            <input type="text" name="status"/><br><br>
+      <h1>NEW TASK</h1>
+      <form action="/pendulum" method="POST">
+        <label for="taskName"></label>
+        <input type="text" name="taskName" placeholder="Task"/><br><br>
 
-            <label for="priority">Priority:</label>
-            <input type="text" name="priority"/><br><br>
+        <label for="status"></label>
+        <input type="text" name="status" placeholder="status"/><br><br>
 
-            <label for="date">Date:</label>
-            <input type="text" name="date"/><br><br>
+        <label for="priority"></label>
+        <input type="text" name="priority" placeholder="priority"/><br><br>
 
-            <label for="notes">Notes:</label>
-            <input type="text" name="notes"/><br><br>
+        <label for="date"></label>
+        <input type="text" name="date" placeholder="date"/><br><br>
 
-            <button class="new-btn"><a href="/pendulum">Submit</a></button>
-            <br><br>
-        </form>
-    </div>    
+        <label for="notes"></label>
+        <input type="text" name="notes" placeholder="notes"/><br><br>
+
+        <button class="new-btn"><a href="/pendulum">Submit</a></button>
+        <br><br>
+      </form>
+    </div>
 </body>
+
 </html>
