@@ -6,26 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Task</title>
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oxygen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <main>
-    <div class="container">
+    <div class="todo-container">
       <h1>Edit Task</h1>
       <form action="/pendulum/<%=item._id%>?_method=PUT" method="POST">
-        <label for="taskName">Task:</label>
+        
+        <b>previous task:</b> <%=item.taskName%><br>
+        <label for="taskName">UPDATED TASK:</label>
         <input type="text" name="taskName" /><br><br>
 
-        <label for="status">Status:</label>
-        <input type="text" name="status" /><br><br>
-
-        <label for="priority">Priority:</label>
-        <input type="text" name="priority" /><br><br>
-
-        <label for="date">Date:</label>
+        <b>previous date:</b> <%=item.date%><br>
+        <label for="date">UPDATED DATE:</label>
         <input type="text" name="date" /><br><br>
 
+        <b>previous status:</b> <%=item.status %><br>
+        <label for="status">UPDATED STATUS:</label>
+        <input type="text" name="status" /><br><br>
+
+        <b>previous priority:</b> <%=item.priority%><br>
+        <label for="priority">UPDATED PRIORITY:</label>
+        <input type="text" name="priority" /><br><br>
+        
+        <b>notes:</b> <%=item.notes%></br>
         <label for="notes">Notes:</label>
         <input type="text" name="notes" /><br><br>
 
@@ -33,7 +40,9 @@
         <input type="checkbox" name="completed" <% if(item.completed===true){ %> checked <% } %> />
           <br />
 
-          <input type="submit" class="new-btn"><a href="/pendulum"></a></button>
+        <input type="submit" class="user-info new-btn"></button>
+        <a href="/pendulum"><button class="user-info edit">TODO LIST</button></a>
+
           <br><br>
       </form>
     </div>

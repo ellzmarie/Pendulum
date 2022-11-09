@@ -41,7 +41,9 @@ pendulumRouter.put('/:id', (req, res) => {
         req.body, 
         { new: true },
         (err, updatedItem) => {
-        res.redirect(`/pendulum/${req.params.id}`)
+        console.log(err)
+        res.redirect(`/pendulum`)
+        // res.redirect(`/pendulum/${req.params.id}`)
     })
 })
 
@@ -57,17 +59,17 @@ pendulumRouter.post('/:id', (req, res) => {
 // EDIT 
 pendulumRouter.get('/:id/edit', (req, res) => {
     TaskItem.findById(req.params.id, (err, foundTask) => {
-        if (err) console.log(err)
-        res.render('edit.ejs')
+        // if (err) console.log(err)
+        res.render('edit.ejs', { item: foundTask})
         })
     })
 
 // SHOW
-pendulumRouter.get('/findById:id', (req, res) => {
+pendulumRouter.get('/:id', (req, res) => {
     TaskItem.findById(req.params.id, (err, foundTask) => {
         // if (err) console.log(err)
         res.render('show.ejs', {
-            item: item
+            item: foundTask
         })
     })
 })
