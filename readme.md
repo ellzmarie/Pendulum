@@ -1,4 +1,4 @@
-#h1 Pendulum ToDo List App
+#Pendulum ToDo List App
 
 [view app here](https://pendulum-project.herokuapp.com/pendulum)
 
