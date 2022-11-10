@@ -22,7 +22,7 @@ In this project, the technologies I used were:
 [view roadmap here](https://trello.com/b/pdR6tBLX/pendulum)
 
 I think this would be a fun personal project that I can continue iterating on. In the near future, I'd like to implement: 
-- Add a calendar
+- A calendar
 - Automate tasks
 - Basic authorization: restricting access to certain features, such as editing and deleting a resource, to an authenticated user, or the user that created that resource
 - Consume a third-party API
