@@ -10,30 +10,31 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-  <style>
-    .taskName {
-      color: #ad896e
-    }
-  </style>
+<style>
+  .taskName {
+    color: #ad896e
+  }
+</style>
 
 <body>
   <!-- ============ HEADER ============ -->
   <!-- ============ MAIN ============ -->
   <main>
-      <div class="todo-container">
-        <h1>TODO LIST</h1>
-        <form class="user-info new-task-form">
-          <input type="text" id="new-task-input" placeholder="add new task">
-          <a href="/pendulum/new"><button class="user-info add">ADD</button></a>  
-        </form>
-        <h2>TASKS</h2>
+    <div class="todo-container">
+      <h1>TODO LIST</h1>
+      <form class="user-info new-task-form">
+        <input type="text" id="new-task-input" placeholder="add new task">
+        <a href="/pendulum"><button class="user-info add">ADD</button></a>
+      </form>
+      <h2>TASKS</h2>
       <div class="todo">
-        <h4><div class="item-title-one">
-          <!-- <form class="user-info new-task-form">
+        <h4>
+          <div class="item-title-one">
+            <!-- <form class="user-info new-task-form">
             <input type="text" id="new-task-input" placeholder="add new task">
             <a href="/pendulum/new"><button class="user-info add">ADD</button></a>  
           </form> -->
-          <!-- <div class="user-info taskName">Task</div>
+            <!-- <div class="user-info taskName">Task</div>
           <div class="user-info date">Date</div>
           <div class="user-info status">Status</div>
           <div class="user-info priority">Priority</div>
@@ -42,28 +43,29 @@
         </div></h4>  -->
 
 
-        <% taskitems.forEach(item=> { %>
-        <div class="user-list">
-        <div class="user-info">
-          <a href="/pendulum/<%=item._id %>" class="taskName"><%=item.taskName %></a>            
-        </div>
-        <!-- <div class="user-info date"><%=item.date %></div>
+            <% taskitems.forEach(item=> { %>
+              <div class="user-list">
+                <div class="user-info">
+                  <a href="/pendulum/<%=item._id %>" class="taskName">
+                    <%=item.taskName %>
+                  </a>
+                </div>
+                <!-- <div class="user-info date"><%=item.date %></div>
         <div class="user-info status"><%=item.status %></div>
         <div class="user-info priority"><%=item.priority %></div>
         <div class="user-info notes"><%=item.notes %></div>  -->
-        
-          <div class="aed-btns"></div>                  
-                  <a href="/pendulum/<%=item._id%>/edit"><button class="user-info edit">EDIT</button></a>
+
+                <div class="aed-btns"></div>
+                <a href="/pendulum/<%=item._id%>/edit"><button class="user-info edit">EDIT</button></a>
                 <form action="/pendulum/<%=item._id %>?_method=DELETE" method="post">
-                <input type="submit" value="DELETE" class='user-info delete' />
+                  <input type="submit" value="DELETE" class='user-info delete' />
                 </form>
-              <% }) %>
-        </div>
-      </div>
+                <% }) %>
+              </div>
+          </div>
       </div>
 
   </main>
 </body>
 
 </html>
-
