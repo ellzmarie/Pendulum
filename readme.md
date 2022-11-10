@@ -6,7 +6,7 @@ Since creating this app, I can definitely say that I have a greater appreciation
 
 ---
 
-![Root page](public/img/Pendulum-P2-img3.png)
+![Root page](public/img/Pendulum-P2-img4.png)
 ![Root page](public/img/Pendulum-P2-img2.png)
 ![Root page](public/img/Pendulum-P2-img1.png)
 
@@ -23,9 +23,9 @@ In this project, the technologies I used were:
 
 ---
 
-[view app here](https://pendulum-project.herokuapp.com/pendulum)
+[View app here](https://pendulum-project.herokuapp.com/pendulum)
 
-[view roadmap here](https://trello.com/b/pdR6tBLX/pendulum)
+[You can checkout my roadmap here](https://trello.com/b/pdR6tBLX/pendulum)
 
 --- 
 
