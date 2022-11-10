@@ -48,7 +48,7 @@ pendulumRouter.put('/:id', (req, res) => {
 })
 
 // CREATE
-pendulumRouter.post('/:id', (req, res) => {
+pendulumRouter.post('/', (req, res) => {
     req.body.completed = req.body.completed === "on" ? true : false;
     TaskItem.create(req.body, (err, createdTask) => {
         if (err) console.log(err)

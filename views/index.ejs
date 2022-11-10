@@ -22,27 +22,34 @@
   <main>
     <div class="todo-container">
       <h1>TODO LIST</h1>
-      <form class="user-info new-task-form">
-        <input type="text" id="new-task-input" placeholder="add new task">
-        <a href="/pendulum"><button class="user-info add">ADD</button></a>
+      <form action="/pendulum" method="POST">
+        
+        <label for="taskName">Task:</label>
+        <input type="text" name="taskName" /><br><br>
+
+        <label for="date">Date:</label>
+        <input type="text" name="date" /><br><br>
+
+        <label for="status">Status:</label>
+        <input type="text" name="status" /><br><br>
+
+        <label for="priority">Priority:</label>
+        <input type="text" name="priority" /><br><br>
+        
+        <label for="notes">Notes:</label>
+        <input type="text" name="notes" /><br><br>
+
+        <lablel for="completed">Completed:</lablel>
+        <input type="checkbox" name="completed">
+
+        <input type="submit" class="user-info new-btn">
+
+          <br><br>
       </form>
       <h2>TASKS</h2>
       <div class="todo">
         <h4>
           <div class="item-title-one">
-            <!-- <form class="user-info new-task-form">
-            <input type="text" id="new-task-input" placeholder="add new task">
-            <a href="/pendulum/new"><button class="user-info add">ADD</button></a>  
-          </form> -->
-            <!-- <div class="user-info taskName">Task</div>
-          <div class="user-info date">Date</div>
-          <div class="user-info status">Status</div>
-          <div class="user-info priority">Priority</div>
-          <div class="user-info notes">Notes</div><br>
-          <div class="user-info update"></div>
-        </div></h4>  -->
-
-
             <% taskitems.forEach(item=> { %>
               <div class="user-list">
                 <div class="user-info">
@@ -69,3 +76,15 @@
 </body>
 
 </html>
+
+            <!-- <form class="user-info new-task-form">
+            <input type="text" id="new-task-input" placeholder="add new task">
+            <a href="/pendulum/new"><button class="user-info add">ADD</button></a>  
+          </form> -->
+            <!-- <div class="user-info taskName">Task</div>
+          <div class="user-info date">Date</div>
+          <div class="user-info status">Status</div>
+          <div class="user-info priority">Priority</div>
+          <div class="user-info notes">Notes</div><br>
+          <div class="user-info update"></div>
+        </div></h4>  -->
