@@ -26,4 +26,7 @@ I think this would be a fun personal project that I can continue iterating on. I
 - Automate tasks
 - Basic authorization: restricting access to certain features, such as editing and deleting a resource, to an authenticated user, or the user that created that resource
 - Consume a third-party API
-- Send alerts
+- Send alerts when a task is due
+- Create folders within a file so I can expand on a specific topic
+- Schedule Tasks
+- Collaborate with others 
