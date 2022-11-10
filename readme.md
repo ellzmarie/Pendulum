@@ -1,6 +1,8 @@
 # Pendulum ToDo List App
 
-I decided to create a todo list app because I love using them! I've used plenty of different project management softwares like Asana, Notion, Click-up, Milanote, the notes app on my iphone and Jira. Since I enjoy using them, I thought it was be interesting to actually try to make my own. There are a ton of things that could be improved on my app but I have a greater appreciation for them now that I've tried to make my own and the simplest things took me forever to do. All in all, it was a fun rollercoaster. 
+I decided to create a todo list app because I love using them! I've used plenty of different project management softwares like Asana, Notion, Click-up, Milanote, the notes app on my iphone and Jira — softwares like these help me accomplish a lot of tasks, big and small . Since I enjoy using them, I thought it would be interesting to actually try to make my own. 
+
+Since creating this app, I can definitely say that I have a greater appreciation for these project management/todo list tools now that I've tried to make my own. I underestimated the amount of time it would take and had a ton of ideas and features I wanted to add. But the simplest things took me forever to do. All in all, it was a fun rollercoaster. 
 
 ---
 
@@ -31,7 +33,6 @@ I think this would be a fun personal project that I can continue iterating on. I
 - A calendar
 - Automate tasks
 - Basic authorization: restricting access to certain features, such as editing and deleting a resource, to an authenticated user, or the user that created that resource
-- Consume a third-party API
 - Send alerts when a task is due
 - Create folders within a file so I can expand on a specific topic
 - Schedule Tasks
